@@ -1,981 +1,543 @@
-/* ===================================
-   CONTENT COLLECTIONS - DATA STRUCTURE
-   Content-agnostic template for ANY topic
-   
-   HOW TO USE THIS FILE:
-   1. Each collection represents a themed group of content
-   2. Each item is a short piece of content (2-4 sentences) + image
-   3. Add/remove collections freely - no limit
-   4. Variable item counts per collection (1-1000+ items)
-   5. Replace text with your own content on ANY topic
-   
-   TEMPLATE STRUCTURE:
-   {
-       id: [unique number],
-       title: "[Your Collection Name]",
-       description: "[Brief description]",
-       items: [
-           {
-               text: "[Your content text here. Keep it short and impactful.]",
-               image: "[Image URL - Unsplash, your own CDN, etc.]"
-           }
-       ]
-   }
-   =================================== */
+// ========================================
+// THE MEMORY BOOK - Harry Lorayne & Jerry Lucas
+// Content structure for Universal Content PWA
+// ========================================
 
 const COLLECTIONS = [
-    // Collection 1: 16 items
     {
         id: 1,
-        title: "Morning Reflections",
-        description: "Start your day with clarity",
+        title: "Memory Through History",
+        description: "How memory systems evolved from ancient times to modern day",
         items: [
             {
-                text: "The obstacle is the way. What stands in the path becomes the path itself. Every challenge you face is an opportunity to practice virtue and develop strength.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+                text: "Ancient Greek and Roman orators used memory systems called 'loci' or 'places' to deliver lengthy speeches without notes. They would associate each thought of their speech to parts of their own homes.",
+                image: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&h=600&fit=crop"
             },
             {
-                text: "You have power over your mind, not outside events. Realize this, and you will find strength in every situation you encounter.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
+                text: "The phrase 'in the first place' comes from these ancient memory techniques. Orators would mentally walk through their homes, with the front door representing the first thought.",
+                image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&h=600&fit=crop"
             },
             {
-                text: "Waste no more time arguing what a good person should be. Be one. Action speaks louder than endless contemplation.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
+                text: "Simonides (circa 500 B.C.) is known as the father of trained memory. However, memory techniques existed at least a thousand years before him.",
+                image: "https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=800&h=600&fit=crop"
             },
             {
-                text: "If it is not right, do not do it. If it is not true, do not say it. Let your actions and words align with your principles.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
+                text: "Cicero wrote that lawyers and orators of his time relied on memory systems and training. Oratory was one of the most important careers in ancient Rome.",
+                image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop"
             },
             {
-                text: "The happiness of your life depends on the quality of your thoughts. Guard your mind carefully, for it shapes your entire existence.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Accept the things to which fate binds you. Love the people with whom fate brings you together, but do so with all your heart.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Do every act of your life as though it were your last. Let urgency guide your actions, but not anxiety cloud your judgment.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The best revenge is to be unlike him who performed the injury. Rise above pettiness by embodying excellence in character.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Confine yourself to the present. The past cannot be changed, and the future is not yet here. This moment is all you truly have.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Very little is needed to make a happy life. It is all within yourself, in your way of thinking and being present.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "How much more grievous are the consequences of anger than the causes of it. Control your reactions, not external circumstances.",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "When you arise in the morning, think of what a precious privilege it is to be alive. To breathe, to think, to enjoy, to love.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "You could leave life right now. Let that determine what you do and say and think. Live each moment fully aware of its impermanence.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The soul becomes dyed with the color of its thoughts. Choose your mental patterns wisely, for they shape who you become.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth. Remain humble in your judgments.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Nowhere can you find a more peaceful place than in your own soul. Take refuge in inner tranquility when the world grows chaotic.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    // Collection 2: 17 items
-    {
-        id: 2,
-        title: "Strength in Adversity",
-        description: "Build resilience through challenge",
-        items: [
-            {
-                text: "Difficulty is what wakes up the genius. Without resistance, there is no growth. Welcome the struggle as your greatest teacher.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "What doesn't transmit light creates its own darkness. Choose to be a source of illumination rather than an obstacle to it.",
-                image: "https://images.unsplash.com/photo-1429277096327-11ee3b761c93?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The impediment to action advances action. What stands in the way becomes the way forward. Transform obstacles into opportunities.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "It's not what happens to you, but how you react that matters. Your response defines your character, not the circumstance itself.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The mind that is anxious about future events is miserable. Focus on what you can control today, this hour, this moment.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
-            },
-            {
-                text: "He who fears death will never do anything worthy of life. Live boldly, knowing that impermanence makes each moment precious.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "No person has the power to have everything they want, but they have the power not to want what they don't have. Choose contentment.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Begin at once to live, and count each day as a separate life. Don't wait for perfect conditions that may never arrive.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Luck is what happens when preparation meets opportunity. Position yourself wisely, then embrace what comes your way.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "True happiness is to enjoy the present, without anxious dependence upon the future. Find peace in this very moment.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "We suffer more in imagination than in reality. Most of your fears will never materialize if you focus on present action.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "It is not the man who has too little, but the man who craves more, that is poor. Recognize abundance in simplicity.",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Life is long if you know how to use it. Quality of time matters far more than quantity of years.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Associate with people who are likely to improve you. Choose companions who elevate your character and challenge your thinking.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Wherever there is a human being, there is an opportunity for kindness. Never miss a chance to express compassion.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Nothing, to my way of thinking, is better proof of a well-ordered mind than being able to stop and dwell wherever one is.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The greatest obstacle to living is expectancy. Release your attachment to specific outcomes and embrace what unfolds.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    // Collection 3: 16 items
-    {
-        id: 3,
-        title: "Daily Wisdom",
-        description: "Practical guidance for living",
-        items: [
-            {
-                text: "First say to yourself what you would be, then do what you have to do. Clarity of intention must precede action.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Wealth consists not in having great possessions, but in having few wants. Simplicity is the ultimate sophistication.",
-                image: "https://images.unsplash.com/photo-1429277096327-11ee3b761c93?w=800&h=600&fit=crop"
-            },
-            {
-                text: "He who laughs at himself never runs out of things to laugh at. Cultivate humility through self-awareness.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Don't explain your philosophy. Embody it. Your life is the most powerful argument for your beliefs.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Freedom is the only worthy goal in life. It is won by disregarding things that lie beyond our control.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Caretake this moment. Immerse yourself in its particularity. Respond to the unique demands it presents.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Make the best use of what is in your power, and take the rest as it happens. Distinguish effort from outcome.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "It's not because things are difficult that we dare not venture. It's because we dare not venture that they are difficult.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "If a man knows not which port he sails, no wind is favorable. Define your destination before setting sail.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Only the educated are free. Knowledge liberates the mind from ignorance and expands your possibilities.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "No man is free who is not master of himself. Self-control is the foundation of all other freedoms.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "First learn the meaning of what you say, and then speak. Thoughtful words carry weight that hasty ones cannot.",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Any person capable of angering you becomes your master. Guard your emotional sovereignty carefully.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "It's not what you look at that matters, it's what you see. Perception shapes reality more than facts do.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Know, first, who you are, and then adorn yourself accordingly. Authenticity must precede presentation.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The chief task in life is simply this: to identify what is yours and what is not. Focus only on what you control.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    // Collection 4: 51 items (largest collection)
-    {
-        id: 4,
-        title: "Character Development",
-        description: "Building virtue through practice",
-        items: [
-            {
-                text: "The person who has virtue has everything. External possessions come and go, but strong character endures all circumstances.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Practice poverty to appreciate wealth. Voluntary discomfort builds resilience and gratitude for what you have.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Set aside a certain number of days to be content with little. Test your resources and strengthen your resolve.",
-                image: "https://images.unsplash.com/photo-1429277096327-11ee3b761c93?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Nothing is enough for the person to whom enough is too little. Insatiable desire creates perpetual dissatisfaction.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The person who pursues pleasure as a good will never find it. Joy comes as a byproduct of meaningful action.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Be tolerant with others and strict with yourself. Hold yourself to high standards while showing compassion to others.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
-            },
-            {
-                text: "When you wake up in the morning, tell yourself: I will meet people who interfere and are ungrateful. Prepare for reality.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The best revenge is not to be like that. Rising above pettiness demonstrates true strength of character.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Think of the life you have lived until now as over. From now on, see what you can make of your remaining time.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The present moment is the same for everyone; what differs is the value we place on it. Choose to value it highly.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Look well into thyself; there is a source of strength which will always spring up if thou wilt always look.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "A gem cannot be polished without friction, nor a person perfected without trials. Welcome difficulty as refinement.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Receive wealth or prosperity without arrogance; and be ready to let it go. Hold all things lightly in your hands.",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Today I escaped anxiety. Or no, I discarded it, because it was within me, in my own perceptions.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "External thinks are not the problem. It's your assessment of them. Which you can erase right now. Change your mind.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "You have been formed of three parts: body, breath, and mind. Of these, the first two are yours only insofar as you care for them.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Think of yourself as dead. You have lived your life. Now take what's left and live it properly.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The present is all we have. The past is gone, the future uncertain. Work with what you have right now.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "How ridiculous not to flee from one's own wickedness, which is possible, yet endeavor to flee from others' wickedness.",
-                image: "https://images.unsplash.com/photo-1429277096327-11ee3b761c93?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Ambition means tying your well-being to what others say or do. Sanity means tying it to your own actions.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "You don't have to turn this into something. It doesn't have to upset you. Things can't shape our decisions by themselves.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Choose not to be harmed, and you won't feel harmed. Don't feel harmed, and you haven't been. Perception is power.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
-            },
-            {
-                text: "If anyone tells you that a certain person speaks ill of you, do not defend yourself. Say: He does not know my other faults.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Don't demand things happen as you wish. Wish them to happen as they do, and you will get along well.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Give yourself fully to your endeavors, and then release attachment to the outcome. Do your best, accept the result.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Keep your attention on what is truly your own concern. Be indifferent to what does not concern you. Focus your energy wisely.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Circumstances don't make the person; they reveal them to themselves. Crisis shows you who you truly are.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Character is revealed in times of difficulty. Anyone can be pleasant when circumstances are favorable. Who are you when they're not?",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The cucumber is bitter? Put it down. There are thorns in the path? Turn aside. That is enough. Simple solutions exist.",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Be like the rock that the waves keep crashing over. It stands unmoved and calms the fury of the sea around it.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "You can endure anything your mind can make endurable, by treating it as in your interest to do so. Reframe difficulty.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "If you seek tranquility, do less. Better yet, do what's essential. Ask yourself at every moment: Is this necessary?",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Treat what you don't have as nonexistent. Look at what you have and think how you'd crave them if they weren't yours.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Remember: the person who feels insulted by your words has chosen to interpret them as insulting. They control their reaction.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Don't be ashamed to need help. You have a duty to fulfill just like a soldier on the wall of battle.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The tranquility that comes when you stop caring what others say or think or do. Only what you do matters.",
-                image: "https://images.unsplash.com/photo-1429277096327-11ee3b761c93?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Concentrate every minute on doing what's in front of you with precise and genuine seriousness. Free your mind from distractions.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "People who labor all their lives but have no purpose to direct every thought and impulse accomplish nothing.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Stop allowing your mind to be a slave, to be jerked about by selfish impulses. Give yourself the gift of self-mastery.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Your time is limited. Don't waste it living someone else's life. Have the courage to follow your own path.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The present is the only thing of which a person can be deprived. You cannot lose the past or future, as you don't possess them.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "To move from one unselfish action to another with God in mind is what life is about. All else is meaningless distraction.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "When forced by circumstances into being upset, quickly return to yourself. Don't remain out of tune longer than necessary.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Words that everyone once used are now obsolete. So are the men whose names were once on everyone's lips. Everything fades.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Reject your sense of injury and the injury itself disappears. Healing begins when you change your interpretation of events.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "A blazing fire makes flame and brightness out of everything thrown into it. Transform obstacles into fuel for your purpose.",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Take care not to ever be found as you accused others of being. Hold yourself to the standard you demand of others.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The art of living is more like wrestling than dancing. Be ready to stand firm against sudden and unexpected attacks.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "How long are you going to wait before you demand the best for yourself? Now is the time to step into excellence.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The willing are led by fate, the reluctant dragged. Choose to align yourself with what must happen anyway.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    // Collection 5: 36 items
-    {
-        id: 5,
-        title: "Evening Contemplations",
-        description: "Reflect on the day behind you",
-        items: [
-            {
-                text: "Before you sleep, review your day. What did you do well? Where did you fall short? Tomorrow is a chance to improve.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Put each day to rest with gratitude. Appreciate what you experienced, learned, and endured. Tomorrow begins fresh.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The day is done. Let go of what you cannot change. Prepare your mind for restful sleep and renewal.",
-                image: "https://images.unsplash.com/photo-1429277096327-11ee3b761c93?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Did you live today according to your values? If yes, rejoice. If no, plan how to do better tomorrow.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "End each day as if it were your last. Would you be satisfied with how you spent these precious hours?",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Sleep is a preview of death. Embrace rest without fear, knowing you lived this day fully and with purpose.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Let your evening ritual be simple: reflect, release, rest. Create a boundary between day and night.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "What irritated you today? Was it worth the energy you gave it? Learn to distinguish the worthy from the trivial.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Count your blessings, not your problems. Evening is the time to acknowledge all that went right today.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Did you help someone today? Did you harm anyone? Honest accounting builds a sound character over time.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Tomorrow is not guaranteed. If this were your last evening, would you be at peace? Live accordingly.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Release the tensions of the day. Your body carried you through challenges. Thank it with rest and care.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Evening silence is golden. Turn off the noise and listen to your inner voice. What does it tell you?",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Prepare tomorrow's intentions tonight. A clear plan allows you to wake with purpose rather than confusion.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Did you waste time today? Learn from it. Time is the only resource you cannot replenish.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Forgive yourself for imperfections. You are human, learning as you go. Tomorrow offers another opportunity.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "What did you learn today? Extract wisdom from every experience, pleasant or painful. Growth requires reflection.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "End conflicts before sleep. Don't carry resentment into your rest. Let go and wake lighter.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            },
-            {
-                text: "The evening belongs to reflection, not regret. Observe without harsh judgment. Learn without self-punishment.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Did you speak truth today? Did you act with integrity? Align your actions with your principles daily.",
-                image: "https://images.unsplash.com/photo-1429277096327-11ee3b761c93?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Close the day with a clear conscience. Make amends where needed. Don't let guilt disturb your peace.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Evening is for letting go. Release what served its purpose. Cling to nothing but wisdom and virtue.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Were you present today, or did you sleepwalk through your hours? Practice awareness tomorrow.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Thank those who challenged you today. They revealed where you need to grow stronger. Difficulty refines character.",
-                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "End your day in simplicity. Complex thoughts can wait for morning. Rest requires a quiet mind.",
-                image: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Did you make progress toward your goals? Celebrate small steps. Consistency builds extraordinary results over time.",
-                image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Evening reveals what daytime hides. In stillness, truth emerges. Listen carefully to what it tells you.",
-                image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Let go of perfectionism before bed. You did your best with what you knew. That is always enough.",
-                image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Close your day with intention, not exhaustion. Create a ritual that honors the transition from action to rest.",
-                image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "What patterns do you notice in your days? Identify them tonight. Change requires awareness first, action second.",
-                image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Evening gratitude multiplies your blessings. Name three good things from today. Train your mind toward abundance.",
-                image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Did you honor your body today? Proper rest is not laziness, it's essential maintenance. Sleep deeply without guilt.",
-                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Let the day's conversations go. Words were spoken, heard, or misunderstood. Release them all into the night.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "End this day without comparison. You are on your own path, at your own pace. Honor where you are.",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Tomorrow awaits, but tonight belongs to rest. Surrender to sleep with a peaceful heart and quiet mind.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Close your eyes knowing you gave today your honest effort. That is all that can be asked of anyone.",
-                image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    // Collection 6: 39 items
-    {
-        id: 6,
-        title: "Relationships & Community",
-        description: "Connecting with others wisely",
-        items: [
-            {
-                text: "We are social creatures by nature. Your well-being is tied to the quality of your relationships. Choose connections wisely.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Treat everyone with kindness, but share your innermost thoughts only with those who have earned your trust through time.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "You become like the people you spend time with. Surround yourself with those who inspire your growth and challenge your thinking.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Listen more than you speak. True understanding comes from genuine curiosity about others' experiences and perspectives.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Forgive quickly but remember carefully. Learn from how people treat you, then decide how much access they deserve to your life.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Give without expecting return. True generosity asks for nothing back. The act itself should be your reward.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Boundaries are acts of self-respect, not selfishness. You teach people how to treat you by what you allow.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Support others in their victories without jealousy. Celebrate their success as if it were your own. Abundance multiplies through joy.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "When someone shows you their true character, believe them the first time. People tell you who they are through actions.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Conflict is inevitable, but cruelty is optional. Disagree with respect. Attack ideas, never people's dignity.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Your parents will not be here forever. Honor them while you can. Time with loved ones is the most precious resource.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Quality trumps quantity in friendships. A few genuine connections matter more than hundreds of superficial acquaintances.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Show up for people in their difficult moments. Fair-weather friends are abundant. Be the one who stays when it's hard.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Don't try to change anyone. Accept people as they are or create distance. Your job is to manage yourself, not others.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Express appreciation regularly. Don't assume people know you care. Words of affirmation cost nothing but mean everything.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Choose your battles carefully. Not every disagreement deserves your energy. Preserve relationships over being right.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Be the friend you want to have. Embody the qualities you seek in others. Like attracts like over time.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Loneliness and solitude are different. Learn to enjoy your own company. Neediness repels; self-sufficiency attracts.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Don't gossip. Speaking ill of others reveals more about your character than theirs. Protect people's reputations in their absence.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Make time for relationships intentionally. Connection doesn't happen accidentally. Schedule it like you would any important commitment.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Apologize sincerely when you're wrong. Pride destroys relationships faster than almost any other fault. Humility heals.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Trust is built slowly and destroyed quickly. Guard it carefully in all your relationships. It's the foundation of connection.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Be present when with others. Put away distractions. Attention is the most valuable gift you can offer anyone.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Don't compare your relationships to others'. Every connection is unique. Water your own garden instead of envying others'.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Vulnerability builds intimacy. Share your struggles, not just your successes. Authenticity creates deeper bonds than perfection.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Let people go who no longer align with your values. Growth sometimes means outgrowing relationships. This is natural and healthy.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Compliment sincerely and specifically. Generic praise means little. Notice the details and acknowledge genuine efforts.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Don't keep score in relationships. Love is not transactional. Give freely without tallying who did more for whom.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Respect people's time. Be punctual. Follow through on commitments. Reliability is a cornerstone of respect.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Accept that you can't please everyone. Some people won't like you no matter what you do. Make peace with this reality.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Mentor someone younger. Share your hard-won wisdom. Teaching others reinforces your own understanding and creates legacy.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Seek feedback from people you trust. Growth requires outside perspective. Welcome constructive criticism as a gift.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Laugh together often. Joy shared is joy multiplied. Don't take relationships so seriously that you forget to enjoy them.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Defend people who can't defend themselves. Stand up against injustice even when it's uncomfortable. Character shows in action.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Remember important details about people's lives. Ask follow-up questions. Remembering shows you care and were listening.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Create traditions with loved ones. Rituals bind relationships across time. Build memories intentionally through recurring experiences.",
-                image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-            },
-            {
-                text: "End relationships gracefully when necessary. You can leave with dignity and wish people well even when parting ways.",
-                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Invest in your community. Contribute beyond your immediate circle. A strong community elevates everyone within it.",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Love is verb, not just a feeling. Show up. Do the work. Feelings fluctuate, but commitment remains steady through seasons.",
-                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    // Collections 7-12: 6 items each (shorter collections)
-    {
-        id: 7,
-        title: "Focus & Productivity",
-        description: "Work with intention and energy",
-        items: [
-            {
-                text: "Do first what matters most. Tackle your most important task before anything else. Energy and focus are highest in the morning.",
-                image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Eliminate distractions ruthlessly. Every interruption costs you more than the time it takes. Protect your attention like gold.",
-                image: "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Work in focused sprints, then rest intentionally. Sustainable productivity comes from rhythm, not constant grinding.",
-                image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Done is better than perfect. Ship your work and improve later. Perfectionism is often disguised procrastination.",
-                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop"
-            },
-            {
-                text: "One task at a time. Multitasking is a myth that reduces the quality of everything you touch. Focus produces excellence.",
-                image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Know when to stop for the day. Rest is not the enemy of productivity; it's the foundation. Recovery enables performance.",
-                image: "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    {
-        id: 8,
-        title: "Health & Vitality",
-        description: "Care for your physical temple",
-        items: [
-            {
-                text: "Move your body daily. Exercise is not optional for a good life. Physical strength supports mental clarity.",
-                image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Eat real food, mostly plants. Nutrition affects everything: mood, energy, focus, longevity. Fuel yourself well.",
-                image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Prioritize sleep above almost everything else. You cannot think clearly, perform well, or regulate emotions without adequate rest.",
-                image: "https://images.unsplash.com/photo-1541480551145-2370a440d585?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Drink more water. Dehydration impairs cognition before you feel thirsty. Keep your system running optimally.",
-                image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Spend time outdoors regularly. Nature restores mental energy and provides perspective. You are part of the natural world.",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Listen to your body's signals. Pain, fatigue, hunger, and thirst are information. Respond with care, not suppression.",
-                image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    {
-        id: 9,
-        title: "Learning & Growth",
-        description: "Expand your mind continuously",
-        items: [
-            {
-                text: "Read daily. Books contain concentrated wisdom from people you'll never meet. Learning compounds over time.",
-                image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Ask better questions. The quality of your questions determines the quality of your understanding. Curiosity is a skill.",
-                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Embrace being a beginner. The willingness to look foolish while learning is the gateway to mastery.",
-                image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Teach what you learn. Explaining concepts to others reveals gaps in your own understanding and cements knowledge.",
-                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Seek out people who know more than you. Proximity to excellence accelerates your development. Choose your influences wisely.",
-                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Apply what you learn immediately. Knowledge without action is merely entertainment. Implementation creates transformation.",
-                image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    {
-        id: 10,
-        title: "Money & Resources",
-        description: "Manage wealth with wisdom",
-        items: [
-            {
-                text: "Spend less than you earn. This simple principle creates financial security and peace of mind over time.",
-                image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Invest in assets that appreciate. Time spent building valuable skills pays dividends for life. Invest in yourself first.",
-                image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Money buys freedom, not happiness. Pursue financial security to create options, not to impress others.",
-                image: "https://images.unsplash.com/photo-1621981386829-9b458a2cddde?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Avoid debt for consumption. Borrow only for investments that increase your earning capacity. Debt is a heavy chain.",
-                image: "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Give generously from whatever you have. Generosity creates abundance mindset and strengthens community bonds.",
-                image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Track where your money goes. Awareness enables conscious choices. You can't manage what you don't measure.",
-                image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=800&h=600&fit=crop"
-            }
-        ]
-    },
-
-    {
-        id: 11,
-        title: "Creativity & Expression",
-        description: "Create and share your gifts",
-        items: [
-            {
-                text: "Create something, anything, regularly. Expression is a human need. Don't wait for permission or perfect conditions.",
-                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Share your work before it's perfect. Feedback helps you improve. Hiding your creativity serves no one.",
-                image: "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Creativity requires space. Boredom and silence are fertile ground for ideas. Constant stimulation kills inspiration.",
-                image: "https://images.unsplash.com/photo-1506880135364-e28660dc35fa?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Study the masters of your craft. Learn the rules deeply so you know which ones to break intentionally.",
-                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop"
-            },
-            {
-                text: "Quantity leads to quality. Create volume without judgment. Your best work emerges through consistent practice.",
+                text: "During the Middle Ages, monks and philosophers used memory systems primarily for religious purposes. They memorized Virtues and Vices using these techniques.",
                 image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop"
             },
             {
-                text: "Your unique perspective matters. Stop trying to sound like someone else. Authenticity is your competitive advantage.",
-                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+                text: "King Francis I of France and England's Henry III both used memory systems. Shakespeare is believed to have used them, and his Globe Theater was called 'the memory theater.'",
+                image: "https://images.unsplash.com/photo-1533854775446-95c4609da544?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Francis Bacon taught memory systems in his book 'The Advancement of Learning.' Some scholars believe Leibniz invented calculus while searching for a number memory system.",
+                image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For centuries, memory systems fell into disuse and were even regarded with suspicion. Those who practiced them were sometimes considered witches.",
+                image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&h=600&fit=crop"
             }
         ]
     },
-
     {
-        id: 12,
-        title: "Purpose & Meaning",
-        description: "Connect with something larger",
+        id: 2,
+        title: "Original Awareness",
+        description: "The foundation of all memory: you can't forget what you truly notice",
         items: [
             {
-                text: "Know your 'why' deeply. Purpose gives direction when motivation fades. Connect daily actions to larger meaning.",
-                image: "https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=800&h=600&fit=crop"
+                text: "All memory is based on association. When people say 'I forgot,' what usually happened is they didn't remember in the first place.",
+                image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop"
             },
             {
-                text: "Serve something beyond yourself. Contributing to others creates fulfillment that self-focus never provides.",
-                image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=600&fit=crop"
+                text: "Original Awareness is fundamental to memory. Anything of which you are Originally Aware cannot be forgotten.",
+                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop"
             },
             {
-                text: "Your legacy is built daily. How you treat people and what you create matters more than what you accumulate.",
-                image: "https://images.unsplash.com/photo-1533577116850-9cc66cad8a9b?w=800&h=600&fit=crop"
+                text: "The Basic Memory Rule: You can remember any new piece of information if it is associated to something you already know or remember.",
+                image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&h=600&fit=crop"
             },
             {
-                text: "Question inherited beliefs regularly. Live according to examined values, not societal defaults or family conditioning.",
-                image: "https://images.unsplash.com/photo-1473830394358-91588751b241?w=800&h=600&fit=crop"
+                text: "Teachers have used association for years: 'Every Good Boy Does Fine' for musical notes (E-G-B-D-F), or 'a piece of pie' to remember how to spell 'piece.'",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
             },
             {
-                text: "Find meaning in both peaks and valleys. Purpose isn't just for mountaintop moments. Ordinary days matter most.",
-                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop"
+                text: "Italy's shape is easy to remember because it looks like a boot. This is association at work—connecting new information to something already known.",
+                image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&h=600&fit=crop"
             },
             {
-                text: "You will die. Let this fact focus your choices, not paralyze them. Impermanence makes every moment valuable.",
-                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
+                text: "It's always easier to remember things that have meaning than things that don't. Memory systems make abstract information meaningful and tangible.",
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Virtually all learning is based on memory. Educators may not like to admit it, but students know that the more they remember, the better their grades.",
+                image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=600&fit=crop"
+            },
+            {
+                text: "There are three basic learning skills: searching for information, remembering the information, and applying the information. Memory is the crucial middle step.",
+                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+            },
+            {
+                text: "You've used association all your life, usually subconsciously. The systems taught here simply systematize a natural process you already use.",
+                image: "https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=600&fit=crop"
+            },
+            {
+                text: "When something reminds you of something else, an association was made. Often it's absurd or random, but it works—that's what memory systems harness.",
+                image: "https://images.unsplash.com/photo-1552581234-26160f608093?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 3,
+        title: "The Link System",
+        description: "Connect items in sequence using ridiculous mental pictures",
+        items: [
+            {
+                text: "The Link system associates items to each other in sequence, forming links in a memory chain. One item must lead you to the next through ridiculous associations.",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+            },
+            {
+                text: "To remember anything, associate it to something you already know IN SOME RIDICULOUS WAY. The ridiculous aspect is what makes it memorable.",
+                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Ancient orators didn't realize they could link thoughts directly to each other. They kept searching for new buildings when their own homes had unlimited potential.",
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Don't use logical pictures—they're too vague. An airplane parked near a tree won't work. But millions of trees boarding airplanes? That's memorable!",
+                image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=600&fit=crop"
+            },
+            {
+                text: "You can't think without seeing pictures. Aristotle said: 'It is impossible even to think without a mental picture.' Your mind works like a movie screen.",
+                image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Four rules for ridiculous pictures: Substitution (one item instead of another), Out of Proportion (gigantic items), Exaggeration (millions of items), and Action (movement).",
+                image: "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?w=800&h=600&fit=crop"
+            },
+            {
+                text: "From Ad Herennium (3,000 years ago): 'We forget ordinary things easily, but things that are exceptionally unusual, great, unbelievable, or ridiculous we remember for a long time.'",
+                image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Forming ridiculous pictures exercises your imagination. Children do this naturally; adults need to reactivate those wheels of curiosity and creativity.",
+                image: "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "When you actually see something in your mind, electrical impulses reach your brain's vision center. Mental images activate nearly the same brain signals as real vision.",
+                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop"
+            },
+            {
+                text: "There's no limit to how many items you can Link. Thirty items takes longer than ten, but that's true whether you use the system or not.",
+                image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop"
+            },
+            {
+                text: "To remember the first item in a Link, associate it to the person giving you the list, or to the subject itself. The subject will always start your memory chain.",
+                image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Even if the systems don't work, they must work! Just trying to apply them forces Original Awareness and concentration, which improves memory automatically.",
+                image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: "Substitute Words",
+        description: "Make intangible and abstract things memorable through sound-alike words",
+        items: [
+            {
+                text: "Substitute Words transform intangible or abstract information into something concrete you can picture. Any intangible can become tangible in your mind.",
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600&fit=crop"
+            },
+            {
+                text: "A Substitute Word can be a word that sounds like, or reminds you of, the thing you want to remember. It doesn't have to sound exactly like it.",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For abstract concepts, use any word or phrase that brings that concept to mind. The substitute just needs to remind you of the original information.",
+                image: "https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Names are intangible until you apply Substitute Words. 'Baker' might picture a baker, 'Gordon' might be 'garden,' 'Carpenter' pictures a carpenter.",
+                image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For difficult names, break them into parts. 'Stanislavsky' could be 'Stan is love ski' or 'Stan, I slob ski.' Any silly phrase that sounds similar works.",
+                image: "https://images.unsplash.com/photo-1471086569966-db3eebc25a59?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The Substitute Word technique works for foreign language vocabulary, scientific terms, historical names, or any abstract information that's hard to visualize.",
+                image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Your first thought is usually your best Substitute Word. Don't labor over finding the perfect substitute—anything that reminds you will work.",
+                image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Once you create a Substitute Word, you can picture it in a ridiculous association. This makes even the most abstract information concrete and memorable.",
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 5,
+        title: "Everyday Memory",
+        description: "Practical applications for daily life: errands, shopping, appointments",
+        items: [
+            {
+                text: "Use the Link system for shopping lists. Associate the first item to your shopping bag or cart, then link each item to the next in ridiculous ways.",
+                image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For errands, link each task to the next. If you need to mail a letter, then buy gas, picture millions of letters pouring into your gas tank.",
+                image: "https://images.unsplash.com/photo-1586769852044-692d6e3703f0?w=800&h=600&fit=crop"
+            },
+            {
+                text: "To remember appointments, associate the activity to the time. For a 3 o'clock dentist appointment, picture a gigantic tooth with a clock showing 3:00.",
+                image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Long words can be remembered by breaking them into parts. 'Transcontinental' becomes 'trance continental'—picture a continent in a trance.",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For things you must take with you, link them in sequence. Need keys, wallet, phone? Picture keys opening your wallet, and your phone ringing inside it.",
+                image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The more you use these systems for everyday tasks, the more automatic they become. Your memory will improve in all areas of your life.",
+                image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Memory systems save time. Spending 30 seconds to memorize a shopping list is faster than making multiple trips back to the store for forgotten items.",
+                image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 6,
+        title: "Speeches & Presentations",
+        description: "Deliver talks without notes using thought-to-thought linking",
+        items: [
+            {
+                text: "A speech is simply a sequence of thoughts. Link each thought to the next using ridiculous associations, and you'll never forget your material.",
+                image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Use Substitute Words to represent abstract thoughts. 'Economic growth' might picture a plant growing out of coins.",
+                image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "You don't need to memorize word-for-word. Remembering the thoughts in sequence allows you to speak naturally while covering all your points.",
+                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Link your opening thought to the venue or audience. If speaking in a hotel ballroom, picture your first thought happening in that room.",
+                image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For longer speeches, group thoughts into sections. Link thoughts within each section, then link the sections together using major transitions.",
+                image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Practice your speech once or twice using the Link. That's all it takes. You'll know the material perfectly and speak with confidence.",
+                image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Speakers who use notes lose eye contact with their audience. With memory systems, you maintain connection and appear more credible and authoritative.",
+                image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop"
+            },
+            {
+                text: "If interrupted or asked questions mid-speech, you'll never lose your place. Simply recall your last thought, and it will lead you to the next.",
+                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: "Foreign Languages & Vocabulary",
+        description: "Learn new words and foreign vocabulary faster than ever",
+        items: [
+            {
+                text: "To learn foreign vocabulary, use Substitute Words for both the foreign word and its English meaning, then link them ridiculously.",
+                image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Spanish: 'Caballo' (horse) sounds like 'cab eye oh.' Picture a horse driving a cab with a giant eye saying 'oh!'",
+                image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&h=600&fit=crop"
+            },
+            {
+                text: "French: 'Pomme' (apple) sounds like 'palm.' Picture an apple growing from the palm of your hand.",
+                image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The substitute doesn't need to sound exactly like the foreign word. It just needs to be close enough to remind you of the pronunciation.",
+                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For English vocabulary, make a ridiculous association between the word's meaning and a substitute for the word itself.",
+                image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Example: 'Lackadaisical' (lacking enthusiasm) could be 'lack a daze, I kill'—picture someone lacking energy, in a daze, barely able to move.",
+                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Students who use these techniques can learn vocabulary 2-3 times faster than traditional rote memorization methods.",
+                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The system works for any language—Spanish, French, German, Japanese, Russian. Once you learn the technique, you can apply it anywhere.",
+                image: "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Even complex scientific terms become easy. 'Mitochondria' (powerhouse of cell) could be 'mighty con drier'—picture a mighty, powerful dryer inside a cell.",
+                image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 8,
+        title: "Names & Faces",
+        description: "Never forget a name again by linking it to facial features",
+        items: [
+            {
+                text: "The main reason people forget names is lack of Original Awareness. When introduced, they're not really paying attention to the name.",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Step 1: Really hear the name. If you don't catch it, ask the person to repeat it. This forces you to be Originally Aware.",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Step 2: Convert the name to a Substitute Word you can picture. 'Baker' = baker, 'Rivers' = rivers, 'Goldstein' = gold stein (mug).",
+                image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Step 3: Select one outstanding feature on the person's face. It could be large eyes, bushy eyebrows, dimples, wrinkles, a prominent nose—anything noticeable.",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Step 4: Create a ridiculous association between the outstanding feature and the Substitute Word for the name. Make it visual and exaggerated.",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Example: Mr. Caruso has large ears. Picture cars (car use oh) growing out of his ears. When you see him again, his ears will remind you of cars = Caruso.",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The system works even for difficult names. 'Paprocki' could be 'Pa, rocky'—picture his father being rocky on his outstanding feature.",
+                image: "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Always use the person's name during conversation. This reinforces the association and shows respect and interest.",
+                image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "At parties or meetings, review the names periodically. Look around the room and recall each person's name by looking at their outstanding feature.",
+                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The outstanding feature doesn't have to be a facial flaw. It can be anything noticeable—their hair, smile, glasses, or even how they stand.",
+                image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&h=600&fit=crop"
+            },
+            {
+                text: "With practice, the name-to-face association happens almost instantly. You'll become known as someone with an incredible memory for people.",
+                image: "https://images.unsplash.com/photo-1502378735452-bc7d86632805?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The confidence you gain from remembering names improves all your relationships—personal, professional, and social.",
+                image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 9,
+        title: "Absentmindedness",
+        description: "Stop losing things and forgetting actions you intended to take",
+        items: [
+            {
+                text: "Absentmindedness isn't a memory problem—it's an attention problem. You can't forget something you never registered in the first place.",
+                image: "https://images.unsplash.com/photo-1507646871150-1b2aa9b7d4f7?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Where did I put my keys? You didn't forget—you never consciously observed where you put them. The solution is Original Awareness.",
+                image: "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=600&fit=crop"
+            },
+            {
+                text: "When putting something down, make a ridiculous association between the item and where you're placing it. Keys on the kitchen counter? Picture keys cooking on a stove.",
+                image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Did I turn off the iron? If you associate turning it off to something ridiculous, you'll remember. Picture the iron screaming as you click it off.",
+                image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=800&h=600&fit=crop"
+            },
+            {
+                text: "To remember to do something when you arrive somewhere, link the action to arriving there. Need to make a call when you get home? Picture your front door is a telephone.",
+                image: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The more absurd the association, the more it grabs your attention and forces Original Awareness. This prevents absentminded actions entirely.",
+                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For recurring tasks, create a standard ridiculous image. Always picture your car alarm honking wildly when you set it. This becomes automatic.",
+                image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The systems force you to live in the present moment. Absentmindedness disappears when you're truly aware of your actions.",
+                image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 10,
+        title: "Numbers & The Peg System",
+        description: "Remember numbers, prices, and data using the phonetic alphabet",
+        items: [
+            {
+                text: "The Phonetic Alphabet: 1=T or D, 2=N, 3=M, 4=R, 5=L, 6=J/SH/CH, 7=K/G, 8=F/V, 9=P/B, 0=S/Z. Vowels have no value.",
+                image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=600&fit=crop"
+            },
+            {
+                text: "To remember any number, convert it to consonant sounds, add vowels to make a word, then picture that word. 14 = T+R = tire, 25 = N+L = nail.",
+                image: "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Long numbers can be broken into parts. 3842 = M+V+R+N = 'movie run' or 'move rain.' Picture a movie running in the rain.",
+                image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The Peg System creates permanent 'pegs' for numbers 1-100 (or more). 1=tie, 2=Noah, 3=ma, 4=rye, 5=law, 6=shoe, 7=cow, 8=ivy, 9=bee, 10=toes.",
+                image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=600&fit=crop"
+            },
+            {
+                text: "To remember a list in exact order with numbers, associate each item to its peg word. Item #7? Associate it to a cow. You'll always know its position.",
+                image: "https://images.unsplash.com/photo-1516383740770-fbcc5ccbece0?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Telephone numbers become easy. 555-1234 = LLL-TNMR = 'Lily ate enemy rye' or any phrase using those sounds.",
+                image: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Prices are simple with this system. A $3,842 item becomes 'movie run' (M=3, V=8, R=4, N=2). Picture yourself movie-running while buying it.",
+                image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Historical dates: 1776 (American Independence) = T+K+K+SH = 'take cash.' Picture the Founding Fathers taking cash from the British.",
+                image: "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Style numbers, model numbers, serial numbers—any number can be remembered using this system. It works for all numeric data.",
+                image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Learning the Phonetic Alphabet takes about an hour. Once mastered, you'll be able to remember numbers as easily as words for the rest of your life.",
+                image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 11,
+        title: "Playing Cards & Advanced Memory",
+        description: "Memorize entire decks and apply systems to complex information",
+        items: [
+            {
+                text: "Each playing card gets a permanent image using the Phonetic Alphabet. Ace of Spades = S+T = 'sat' or 'seat.' Picture someone sitting for the Ace of Spades.",
+                image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&h=600&fit=crop"
+            },
+            {
+                text: "To memorize a shuffled deck, Link the card images in sequence. The first card reminds you of the second, the second of the third, and so on.",
+                image: "https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=800&h=600&fit=crop"
+            },
+            {
+                text: "With practice, you can memorize an entire 52-card deck in under 5 minutes. This demonstrates the power of trained memory—it seems impossible but isn't.",
+                image: "https://images.unsplash.com/photo-1611630380029-e552a5f5e4e4?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Weekly appointments use days of the week as pegs. Monday = Money, Tuesday = Tears, Wednesday = Wedding, Thursday = Thirsty, Friday = Frying, Saturday = Sat, Sunday = Sun.",
+                image: "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?w=800&h=600&fit=crop"
+            },
+            {
+                text: "For anniversaries, convert the month and day to phonetic sounds. July 4 (7th month, 4th day) = K+R = 'car.' Picture independence in a car.",
+                image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The zodiac signs become memory pegs: Aries=ram, Taurus=bull, Gemini=twins, Cancer=crab, Leo=lion, Virgo=virgin, Libra=scales, Scorpio=scorpion, Sagittarius=archer, Capricorn=goat, Aquarius=water bearer, Pisces=fish.",
+                image: "https://images.unsplash.com/photo-1532693322450-2cb5c511067d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Historical dates use the year as a peg word. 1492 (Columbus) = T+R+P+N = 'trapping' or 'dripping.' Picture Columbus trapping or dripping with ocean water.",
+                image: "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The alphabet gets peg words too: A=ape, B=bee, C=sea, D=deed, E=easel, F=effort, and so on. Use these for alphabetical lists or filing systems.",
+                image: "https://images.unsplash.com/photo-1553506191-67eb02e6dece?w=800&h=600&fit=crop"
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: "Universal Applications",
+        description: "Apply memory systems to sports, music, reading, and all learning",
+        items: [
+            {
+                text: "In sports, remember player statistics by converting numbers to peg words. A player batting .342 = M+R+N = 'marine.' Picture that player as a marine.",
+                image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Stock market prices and ticker symbols use Substitute Words. 'IBM' might picture an 'eye beam.' Link the beam to the stock price using phonetic words.",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Political information: Link candidate names to their positions. Remember voting records, policy stances, and political platforms using associations.",
+                image: "https://images.unsplash.com/photo-1541872703-74c34d97b53e?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Art history: Link artist names to their famous works. 'Monet' (money) painting water lilies—picture money floating on lily pads.",
+                image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Music for beginners: The staff lines and spaces, note values, key signatures—all can be memorized using substitute words and linking.",
+                image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Reading retention improves dramatically. After each chapter, link the main points in sequence. You'll remember books better than people who took written notes.",
+                image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=600&fit=crop"
+            },
+            {
+                text: "The Memory Graph: Create a visual map of information by linking related concepts spatially. This works for complex subjects like geography, anatomy, or organization charts.",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Children learn these systems faster than adults. Teaching memory techniques early gives kids a lifelong advantage in school and beyond.",
+                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Once you master the basics—Link, Substitute Words, and the Phonetic Alphabet—you can remember anything. The only limit is your willingness to apply the systems.",
+                image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop"
+            },
+            {
+                text: "These systems don't just improve memory—they improve thinking itself. Association, observation, and Original Awareness enhance all cognitive abilities.",
+                image: "https://images.unsplash.com/photo-1552581234-26160f608093?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Memory training is like physical training—the more you practice, the stronger you become. Start small, build confidence, and soon you'll amaze yourself.",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
+            },
+            {
+                text: "Finally: The systems work for everyone, regardless of age or current memory ability. If you can think, you can have a trained memory. Begin today!",
+                image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop"
             }
         ]
     }
 ];
 
-// Calculate total item count across all collections
-const TOTAL_ITEMS = COLLECTIONS.reduce((sum, collection) => sum + collection.items.length, 0);
-
-// Export for use in app.js
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { COLLECTIONS, TOTAL_ITEMS };
-}
+// Total: 12 collections, 120 items
+// Variable collection sizes: 8-12 items each
+// Ready to customize with your own content!
