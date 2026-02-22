@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Universal content delivery app - bite-sized content organized into collections">
+    <meta name="theme-color" content="#8B7355">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Content Collections</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="./icon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+    <link rel="apple-touch-icon" href="./icon-192.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- Header with Controls -->
+    <header class="app-header">
+        <button id="menuBtn" class="header-btn" aria-label="Open collection menu">
+            <span class="icon">☰</span>
+        </button>
+        
+        <div class="header-center">
+            <h1 id="collectionTitle" class="collection-title">Collection 1</h1>
+        </div>
+        
+        <button id="shuffleBtn" class="header-btn" aria-label="Toggle shuffle mode">
+            <span class="icon">🔀</span>
+        </button>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <!-- Collection Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay">
+        <div class="menu-panel">
+            <div class="menu-header">
+                <h2>Collections</h2>
+                <button id="closeMenuBtn" class="close-menu-btn" aria-label="Close menu">✕</button>
+            </div>
+            <div id="menuContent" class="menu-content">
+                <!-- Collections will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="contentArea" class="content-area">
+        <div class="content-wrapper">
+            <!-- Image -->
+            <div class="image-container">
+                <img id="itemImage" src="" alt="Item illustration" class="item-image">
+            </div>
+            
+            <!-- Text Content -->
+            <div class="text-container">
+                <p id="itemText" class="item-text">Loading content...</p>
+            </div>
+        </div>
+        
+        <!-- Navigation Hint (shows on first load) -->
+        <div id="navHint" class="nav-hint">
+            <p>← Tap left to go back | Tap right to continue →</p>
+            <p style="margin-top: 8px; font-size: 14px; opacity: 0.7;">or swipe</p>
+        </div>
+    </main>
+
+    <!-- Item Counter -->
+    <footer class="app-footer">
+        <div id="itemCounter" class="item-counter">
+            <span id="currentItem">1</span> / <span id="totalItems">175</span>
+        </div>
+        <div id="modeIndicator" class="mode-indicator">Linear Mode</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/content.js"></script>
+    <script src="./js/app.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
